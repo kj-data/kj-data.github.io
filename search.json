@@ -1,0 +1,135 @@
+[
+  {
+    "objectID": "projects/tipping-analytics-pipeline/index.html",
+    "href": "projects/tipping-analytics-pipeline/index.html",
+    "title": "Real-Time Tipping Analytics Pipeline",
+    "section": "",
+    "text": "Repositories Github: Ingestion pipeline · Dashboard\nBest time to go live: which day and hour see the most activity?"
+  },
+  {
+    "objectID": "projects/tipping-analytics-pipeline/index.html#problem",
+    "href": "projects/tipping-analytics-pipeline/index.html#problem",
+    "title": "Real-Time Tipping Analytics Pipeline",
+    "section": "Problem",
+    "text": "Problem\nLive-streaming platforms generate real-time interaction events (tips/donations), but without proper capture and structuring, this data is lost — making it impossible to identify audience patterns or user behavior over time."
+  },
+  {
+    "objectID": "projects/tipping-analytics-pipeline/index.html#methodology",
+    "href": "projects/tipping-analytics-pipeline/index.html#methodology",
+    "title": "Real-Time Tipping Analytics Pipeline",
+    "section": "Methodology",
+    "text": "Methodology\n\nReal-time ingestion via long-polling against the platform’s events API (requests, pagination handled through nextUrl)\nEvent deduplication within each session and batch insert into PostgreSQL (Supabase) using psycopg2.extras.execute_batch\nStructured logging and connection-error handling to keep the pipeline running continuously\nInteractive dashboard built with Dash + Plotly: activity heatmaps by time slot/day, user ranking, concentration analysis (Pareto principle), and peak-hour detection per user\n\n# Snippet: ingestion with deduplication\nif evento_id in eventos_vistos:\n    continue\neventos_vistos.add(evento_id)\nlote_datos.append((evento_id, usuario, tokens, hora, fecha))\n\n\n\nData pipeline"
+  },
+  {
+    "objectID": "projects/tipping-analytics-pipeline/index.html#results-discussion",
+    "href": "projects/tipping-analytics-pipeline/index.html#results-discussion",
+    "title": "Real-Time Tipping Analytics Pipeline",
+    "section": "Results & Discussion",
+    "text": "Results & Discussion\nThe dashboard revealed that the top 10 users account for a disproportionate share of total activity — a Pareto-like concentration pattern — and made it possible to identify peak engagement time slots by day of the week. It also enables instant weekly and biweekly reports to track trends in donor behavior over time.\n\n\n\nWeekly token contributions by user (anonymized)"
+  },
+  {
+    "objectID": "projects/tipping-analytics-pipeline/index.html#conclusions",
+    "href": "projects/tipping-analytics-pipeline/index.html#conclusions",
+    "title": "Real-Time Tipping Analytics Pipeline",
+    "section": "Conclusions",
+    "text": "Conclusions\n\nA real-time ingestion pipeline with deduplication is achievable even without complex streaming infrastructure (e.g., Kafka)\nInteractive visualization — rather than static reports — makes it much easier to explore temporal audience patterns\nNext step: extend the pipeline to track multiple channels and package it as a subscription service, monetizing the analytics to help cover hosting costs (the pipeline ran fully automated during the Railway free trial; continuous operation now requires a paid tier, as expected for production infrastructure)"
+  },
+  {
+    "objectID": "portfolio/index.html",
+    "href": "portfolio/index.html",
+    "title": "Portfolio",
+    "section": "",
+    "text": "Citi Bike Rebalancing: Where to Send the Vans\n\n\n\nData Analysis\n\nEDA\n\nGeospatial\n\n\n\nExploratory data analysis identifying which bike-share stations most need active rebalancing.\n\n\n\nJul 30, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nReal-Time Tipping Analytics Pipeline\n\n\n\nData Engineering\n\nETL\n\nSQL\n\nDashboard\n\n\n\nReal-time event ingestion and interactive analytics dashboard for a live-streaming platform.\n\n\n\nJan 15, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about/index.html",
+    "href": "about/index.html",
+    "title": "About Kelly Jauregui",
+    "section": "",
+    "text": "Kelly Jauregui is a Chemical Engineer from Colombia transitioning into Data Science and Data Engineering, building a portfolio of applied projects in Python, SQL, and Machine Learning."
+  },
+  {
+    "objectID": "about/index.html#background",
+    "href": "about/index.html#background",
+    "title": "About Kelly Jauregui",
+    "section": "Background",
+    "text": "Background\nGraduated in Chemical Engineering from the Universidad Nacional de Colombia. Based in Bogotá, Colombia."
+  },
+  {
+    "objectID": "about/index.html#skills",
+    "href": "about/index.html#skills",
+    "title": "About Kelly Jauregui",
+    "section": "Skills",
+    "text": "Skills\n\nPython, SQL\nMachine Learning\nData Visualization\nGit / GitHub"
+  },
+  {
+    "objectID": "about/index.html#contact",
+    "href": "about/index.html#contact",
+    "title": "About Kelly Jauregui",
+    "section": "Contact",
+    "text": "Contact\n\nEmail: jaureguikelly22@gmail.com\nGitHub: kj-data"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Kelly Jauregui Acevedo",
+    "section": "",
+    "text": "I’m a Chemical Engineer from Colombia transitioning into Data Science and Data Engineering. I combine a strong analytical and process-optimization background with hands-on skills in Python, SQL, Machine Learning, and data visualization to turn raw data into decisions.\nMy engineering training taught me to work with real-world, messy systems — mass balances, process variability, quality control — and that same rigor now drives how I approach data problems: understanding the pipeline end-to-end, from ingestion to a model or dashboard someone can actually use.\nI’m currently building a portfolio of applied projects covering data pipelines, exploratory analysis, and machine learning models, documented and reproducible on GitHub. You can see them on the Portfolio page.\nI studied Chemical Engineering at the Universidad Nacional de Colombia, and I’m based in Bogotá, Colombia, open to remote roles internationally."
+  },
+  {
+    "objectID": "index.html#bio",
+    "href": "index.html#bio",
+    "title": "Kelly Jauregui Acevedo",
+    "section": "",
+    "text": "I’m a Chemical Engineer from Colombia transitioning into Data Science and Data Engineering. I combine a strong analytical and process-optimization background with hands-on skills in Python, SQL, Machine Learning, and data visualization to turn raw data into decisions.\nMy engineering training taught me to work with real-world, messy systems — mass balances, process variability, quality control — and that same rigor now drives how I approach data problems: understanding the pipeline end-to-end, from ingestion to a model or dashboard someone can actually use.\nI’m currently building a portfolio of applied projects covering data pipelines, exploratory analysis, and machine learning models, documented and reproducible on GitHub. You can see them on the Portfolio page.\nI studied Chemical Engineering at the Universidad Nacional de Colombia, and I’m based in Bogotá, Colombia, open to remote roles internationally."
+  },
+  {
+    "objectID": "index.html#what-i-work-with",
+    "href": "index.html#what-i-work-with",
+    "title": "Kelly Jauregui Acevedo",
+    "section": "What I work with",
+    "text": "What I work with\n\nLanguages & Tools: Python, SQL, Git/GitHub\nData Science: Machine Learning, EDA, statistical analysis\nData Engineering: data pipelines, ETL, data cleaning at scale\nVisualization: Matplotlib, Seaborn, Plotly, dashboards"
+  },
+  {
+    "objectID": "index.html#what-im-looking-for",
+    "href": "index.html#what-im-looking-for",
+    "title": "Kelly Jauregui Acevedo",
+    "section": "What I’m looking for",
+    "text": "What I’m looking for\nI’m actively seeking remote opportunities as a Data Scientist or Data Engineer, where I can apply my engineering background to solve real data problems with international teams."
+  },
+  {
+    "objectID": "projects/citibike-rebalancing/index.html",
+    "href": "projects/citibike-rebalancing/index.html",
+    "title": "Citi Bike Rebalancing: Where to Send the Vans",
+    "section": "",
+    "text": "Repository: View on GitHub"
+  },
+  {
+    "objectID": "projects/citibike-rebalancing/index.html#problem",
+    "href": "projects/citibike-rebalancing/index.html#problem",
+    "title": "Citi Bike Rebalancing: Where to Send the Vans",
+    "section": "Problem",
+    "text": "Problem\nNew York’s Citi Bike stations suffer from inventory imbalance throughout the day — some stations empty out or overflow depending on the hour — forcing costly logistical decisions about which stations to prioritize for van-based bike rebalancing."
+  },
+  {
+    "objectID": "projects/citibike-rebalancing/index.html#methodology",
+    "href": "projects/citibike-rebalancing/index.html#methodology",
+    "title": "Citi Bike Rebalancing: Where to Send the Vans",
+    "section": "Methodology",
+    "text": "Methodology\n\nExploratory analysis with pandas + seaborn: trip duration distribution, correlation by user type (Subscriber vs. Customer)\nTime segmentation into hourly bands (Morning_rush_hours, day_time_hour, evening_rush_hour, off_peak_hour)\nVariance of usage per station across time bands — stations with high variance are the ones that fluctuate the most and need dynamic rebalancing\nGeospatial mapping with folium to visualize station popularity by location\n\ndf3['variance'] = df3[['Morning_rush_hours', 'day_time_hour',\n                        'evening_rush_hour', 'off_peak_hour']].var(axis=1)\ndf3.sort_values('variance', ascending=False)\n\n\n\nStation variance ranking"
+  },
+  {
+    "objectID": "projects/citibike-rebalancing/index.html#results-discussion",
+    "href": "projects/citibike-rebalancing/index.html#results-discussion",
+    "title": "Citi Bike Rebalancing: Where to Send the Vans",
+    "section": "Results & Discussion",
+    "text": "Results & Discussion\nThe analysis identified the 20 stations with the highest usage variance across time bands — priority candidates for active rebalancing, distinct from the stations that are simply the “most popular” by total volume."
+  },
+  {
+    "objectID": "projects/citibike-rebalancing/index.html#conclusions",
+    "href": "projects/citibike-rebalancing/index.html#conclusions",
+    "title": "Citi Bike Rebalancing: Where to Send the Vans",
+    "section": "Conclusions",
+    "text": "Conclusions\n\nTotal usage volume ≠ rebalancing need — variance across time bands is the correct indicator\nTime segmentation (rush hours vs. off-peak) is key for urban logistics decisions\nNext step: a predictive demand model per station/hour to automate route assignment"
+  }
+]
