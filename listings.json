@@ -1,0 +1,10 @@
+[
+  {
+    "listing": "/portfolio/index.html",
+    "items": [
+      "/projects/coffee-shop-sales/index.html",
+      "/projects/citibike-rebalancing/index.html",
+      "/projects/tipping-analytics-pipeline/index.html"
+    ]
+  }
+]
