@@ -1,0 +1,13 @@
+---
+title: "Portfolio"
+description: "Data Science & Data Engineering projects"
+listing:
+  contents: "../projects/*/index.qmd"
+  type: grid
+  grid-columns: 2
+  image-height: "220px"
+  fields: [image, title, description, date, categories]
+  sort: "date desc"
+  categories: false
+comments: false
+---

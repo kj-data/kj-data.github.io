@@ -1,0 +1,8 @@
+/.quarto/
+/_site/
+__pycache__/
+*.py[cod]
+.env
+/.luarc.json
+
+**/*.quarto_ipynb

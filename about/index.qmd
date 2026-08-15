@@ -1,0 +1,24 @@
+---
+title: "About Kelly Jauregui"
+description: "Chemical Engineer transitioning into Data Science and Data Engineering."
+image: /img/portrait_2x3midres.webp
+comments: false
+---
+
+Kelly Jauregui is a Chemical Engineer from Colombia transitioning into Data Science and Data Engineering, building a portfolio of applied projects in Python, SQL, and Machine Learning.
+
+## Background
+
+Graduated in Chemical Engineering from the [Universidad Nacional de Colombia](https://unal.edu.co). Based in Bogotá, Colombia.
+
+## Skills
+
+- Python, SQL
+- Machine Learning
+- Data Visualization
+- Git / GitHub
+
+## Contact
+
+- Email: [jaureguikelly22@gmail.com](mailto:jaureguikelly22@gmail.com)
+- GitHub: [kj-data](https://github.com/kj-data)

@@ -1,0 +1,43 @@
+---
+title: "Coffee Shop Sales: When and Where Maven Roasters Sells Most"
+description: "Exploratory data analysis of sales transactions across three coffee shop locations in NYC."
+date: 2026-08-14
+image: dash.png  # <-- PLACEHOLDER: replace with a static screenshot of the dashboard (used as the thumbnail in your project listing)
+categories: [Data Analysis, EDA, Power BI]
+comments: false
+---
+**Repository:** [View on GitHub](https://github.com/kj-data/coffee-shop-sales)
+
+<iframe title="coffee_shop_sales Graphic" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiN2RhMzI1ZmItZDY5ZC00Y2NhLWI3MzAtYzc4NzI5NWIxNTNjIiwidCI6IjU3N2ZjMWQ4LTA5MjItNDU4ZS04N2JmLWVjNGY0NTVlYjYwMCIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
+
+## Problem
+
+Maven Roasters, a fictitious coffee shop chain operating three locations in New York City, needs to understand its sales patterns to make better operational decisions: when are the demand peaks?, which products generate the most revenue?, and on which days and hours should staffing be reinforced?
+
+## Methodology
+
+- Loaded and cleaned transactional data with `pandas` (date, time, location, product, quantity, unit price)
+- Feature engineering: `total_amount` (quantity × unit price), day of the week, month, and hour of each transaction
+- Outlier handling: transactions above 300 were replaced with the median, as they were considered artificial/erroneous data points
+- Monthly revenue trend analysis with `seaborn`
+- Heatmap of transaction counts by day of the week and hour of the day
+- Transaction breakdown by product category
+- Ranking of products by total revenue and transaction count
+
+```python
+df["total_amount"] = df["transaction_qty"] * df["unit_price"]
+df["day_of_the_week"] = df["transaction_date"].dt.day_name()
+df["month"] = df["transaction_date"].dt.month_name()
+df["hour"] = pd.to_datetime(df["transaction_time"], format='%H:%M:%S').dt.hour
+```
+
+## Results & Discussion
+
+- Identified the monthly revenue trend, revealing seasons of higher and lower activity
+- The day/hour heatmap revealed the busiest time windows, useful for planning staff shifts
+- Determined which product categories had the most transactions and which individual products drove the most revenue — not always the same as the highest-volume products
+
+## Conclusions
+
+1. Sales volume and revenue generated aren't always aligned by product — some low-volume products drive more revenue per unit
+2. Day/hour patterns are key for optimizing staff allocation and avoiding bottlenecks during peak hours

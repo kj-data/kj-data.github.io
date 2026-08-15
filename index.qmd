@@ -1,0 +1,37 @@
+---
+title: "Kelly Jauregui Acevedo"
+description: "Data Scientist & Data Engineer Portfolio"
+about:
+  template: trestles
+  links:
+    - icon: github
+      text: GitHub
+      href: "https://github.com/kj-data"
+    - icon: envelope
+      text: Email
+      href: "mailto:jaureguikelly22@gmail.com"
+comments: false
+---
+
+<!-- Person schema is in _quarto.yml sitewide include -->
+
+## Bio
+
+I'm a Chemical Engineer from Colombia transitioning into Data Science and Data Engineering. I combine a strong analytical and process-optimization background with hands-on skills in Python, SQL, Machine Learning, and data visualization to turn raw data into decisions.
+
+My engineering training taught me to work with real-world, messy systems — mass balances, process variability, quality control — and that same rigor now drives how I approach data problems: understanding the pipeline end-to-end, from ingestion to a model or dashboard someone can actually use.
+
+I'm currently building a portfolio of applied projects covering data pipelines, exploratory analysis, and machine learning models, documented and reproducible on GitHub. You can see them on the [Portfolio](portfolio/) page.
+
+I studied Chemical Engineering at the [Universidad Nacional de Colombia](https://unal.edu.co), and I'm based in Bogotá, Colombia, open to remote roles internationally.
+
+## What I work with
+
+* **Languages & Tools**: Python, SQL, Git/GitHub
+* **Data Science**: Machine Learning, EDA, statistical analysis
+* **Data Engineering**: data pipelines, ETL, data cleaning at scale
+* **Visualization**: Matplotlib, Seaborn, Plotly, dashboards
+
+## What I'm looking for
+
+I'm actively seeking remote opportunities as a **Data Scientist** or **Data Engineer**, where I can apply my engineering background to solve real data problems with international teams.
