@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Data Science &amp; Data Engineering projects">
+<meta name="dcterms.date" content="2026-09-30">
+<meta name="description" content="End-to-end batch ELT pipeline for NYC taxi trips (2019-2021), based on the DataTalksClub Data Engineering Zoomcamp, with Kestra and dbt packaged together in Docker and a Looker Studio dashboard.">
 
-<title>Portfolio – Kelly Jauregui</title>
+<title>NYC Taxi: An End-to-End Data Pipeline on Google Cloud – Kelly Jauregui</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,28 +28,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,74 +109,19 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-description','listing-date','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Kelly Jauregui Acevedo","jobTitle":"Data Scientist & Data Engineer (in transition)","description":"Kelly Jauregui is a Chemical Engineer transitioning into Data Science and Data Engineering, building projects in Python, SQL, Machine Learning, and data visualization.","sameAs":["https://github.com/kj-data"],"address":{"@type":"PostalAddress","addressLocality":"Bogotá","addressCountry":"CO"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Universidad Nacional de Colombia"},"knowsAbout":["Data Science","Data Engineering","Python","SQL","Machine Learning","Data Visualization"]}</script>
+}</script><script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Kelly Jauregui Acevedo","jobTitle":"Data Scientist & Data Engineer (in transition)","description":"Kelly Jauregui is a Chemical Engineer transitioning into Data Science and Data Engineering, building projects in Python, SQL, Machine Learning, and data visualization.","sameAs":["https://github.com/kj-data"],"address":{"@type":"PostalAddress","addressLocality":"Bogotá","addressCountry":"CO"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Universidad Nacional de Colombia"},"knowsAbout":["Data Science","Data Engineering","Python","SQL","Machine Learning","Data Visualization"]}</script>
 <meta name="author" content="Kelly Jauregui Acevedo">
-<link rel="me" href="https://github.com/kj-data">
-<link rel="canonical" href="https://chrisvoncsefalvay.com/\portfolio\">
-<meta property="og:url" content="https://chrisvoncsefalvay.com/\portfolio\">
-<meta property="og:type" content="website">
+<link rel="me" href="https://github.com/kj-data"><link rel="canonical" href="https://chrisvoncsefalvay.com/\projects\NY_taxi_pipeline\">
+<meta property="og:url" content="https://chrisvoncsefalvay.com/\projects\NY_taxi_pipeline\">
+<meta property="og:type" content="article">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://chrisvoncsefalvay.com/\\projects\\NY_taxi_pipeline\\#article","headline":"NYC Taxi: An End-to-End Data Pipeline on Google Cloud","description":"End-to-end batch ELT pipeline for NYC taxi trips (2019-2021), based on the DataTalksClub Data Engineering Zoomcamp, with Kestra and dbt packaged together in Docker and a Looker Studio dashboard.","url":"https://chrisvoncsefalvay.com/\\projects\\NY_taxi_pipeline\\","datePublished":"2026-09-30","dateModified":"2026-09-30","author":{"@id":"https://chrisvoncsefalvay.com/#person"},"publisher":{"@type":"Person","name":"Chris von Csefalvay","url":"https://chrisvoncsefalvay.com","image":{"@type":"ImageObject","url":"https://chrisvoncsefalvay.com/img/portrait_2x3midres.webp"}},"image":"https://chrisvoncsefalvay.com/\\projects\\NY_taxi_pipeline\\/dashboard.png","keywords":["Data Engineering","dbt","Terraform","BigQuery","Kestra","Docker","GCP","Looker Studio"],"inLanguage":"en","isPartOf":{"@id":"https://chrisvoncsefalvay.com/#website"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://chrisvoncsefalvay.com/\\projects\\NY_taxi_pipeline\\"},"speakable":{"@type":"SpeakableSpecification","cssSelector":["article h1",".description","article > section > p:first-of-type"]}}</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Portfolio – Kelly Jauregui">
-<meta property="og:description" content="Data Science &amp; Data Engineering projects">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="NYC Taxi: An End-to-End Data Pipeline on Google Cloud – Kelly Jauregui">
+<meta property="og:description" content="End-to-end batch ELT pipeline for NYC taxi trips (2019-2021), based on the DataTalksClub Data Engineering Zoomcamp, with Kestra and dbt packaged together in Docker and a Looker Studio dashboard.">
 <meta property="og:image" content="https://kj-data.github.io/projects/NY_taxi_pipeline/dashboard.png">
 <meta property="og:site_name" content="Kelly Jauregui">
 <meta property="og:image:height" content="660">
@@ -156,7 +135,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Kelly Jauregui</span>
     </a>
   </div>
@@ -167,11 +146,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../portfolio/"> 
+    <a class="nav-link" href="../../portfolio/"> 
 <span class="menu-text">Portfolio</span></a>
   </li>  
 </ul>
@@ -191,12 +170,22 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Portfolio</h1>
-</div>
+<h1 class="title">NYC Taxi: An End-to-End Data Pipeline on Google Cloud</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Data Engineering</div>
+    <div class="quarto-category">dbt</div>
+    <div class="quarto-category">Terraform</div>
+    <div class="quarto-category">BigQuery</div>
+    <div class="quarto-category">Kestra</div>
+    <div class="quarto-category">Docker</div>
+    <div class="quarto-category">GCP</div>
+    <div class="quarto-category">Looker Studio</div>
+  </div>
+  </div>
 
 <div>
   <div class="description">
-    Data Science &amp; Data Engineering projects
+    End-to-end batch ELT pipeline for NYC taxi trips (2019-2021), based on the DataTalksClub Data Engineering Zoomcamp, with Kestra and dbt packaged together in Docker and a Looker Studio dashboard.
   </div>
 </div>
 
@@ -204,6 +193,12 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 30, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -213,147 +208,187 @@ window.Quarto = {
 </header>
 
 
-
-
-
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-2">
-<div class="g-col-1" data-index="0" data-categories="RGF0YSUyMEVuZ2luZWVyaW5nJTJDZGJ0JTJDVGVycmFmb3JtJTJDQmlnUXVlcnklMkNLZXN0cmElMkNEb2NrZXIlMkNHQ1AlMkNMb29rZXIlMjBTdHVkaW8=" data-listing-date-sort="1790744400000" data-listing-file-modified-sort="1790809562657" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="964">
-<a href="../projects/NY_taxi_pipeline/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../projects/NY_taxi_pipeline/dashboard.png" class="thumbnail-image card-img" style="height: 220px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-NYC Taxi: An End-to-End Data Pipeline on Google Cloud
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMEVuZ2luZWVyaW5n'); return false;">Data Engineering</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGJ0'); return false;">dbt</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('VGVycmFmb3Jt'); return false;">Terraform</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('QmlnUXVlcnk='); return false;">BigQuery</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('S2VzdHJh'); return false;">Kestra</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RG9ja2Vy'); return false;">Docker</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('R0NQ'); return false;">GCP</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TG9va2VyJTIwU3R1ZGlv'); return false;">Looker Studio</div>
-
+<p><strong>Repository:</strong> <a href="https://github.com/kj-data/nyc-taxi-end-to-end-pipeline">View on GitHub</a></p>
+<p><strong>Dashboard:</strong> <a href="https://datastudio.google.com/s/rXgknptOQNs">NYC Taxi Analytics Dashboard</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="dashboard.png" class="img-fluid figure-img"></p>
+<figcaption>Looker Studio dashboard</figcaption>
+</figure>
 </div>
-<div class="card-text listing-description delink">
-<p>End-to-end batch ELT pipeline for NYC taxi trips (2019-2021), based on the DataTalksClub Data Engineering Zoomcamp, with Kestra and dbt packaged together in Docker and a…</p>
+<section id="credits" class="level2">
+<h2 class="anchored" data-anchor-id="credits">Credits</h2>
+<p>This project is based on the <a href="https://github.com/DataTalksClub/data-engineering-zoomcamp">Data Engineering Zoomcamp</a> by DataTalksClub. The course presents each tool (Terraform, Kestra, BigQuery, dbt) as an isolated module. My goal was to connect them into a single, reproducible pipeline and deliver the analysis end to end.</p>
+</section>
+<section id="problem" class="level2">
+<h2 class="anchored" data-anchor-id="problem">Problem</h2>
+<p>The NYC Taxi &amp; Limousine Commission publishes millions of trip records every month, but the raw files are not ready for analysis. The goal was to build a reproducible, automated pipeline that takes the raw trip data (Yellow and Green taxis, 2019-2021) to a clean, tested analytical layer and answers basic business questions: how does demand change over time, when is it highest, which zones generate the most revenue, and how do passengers pay?</p>
+</section>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>The data comes from the <a href="https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page">NYC TLC Trip Record Data</a>, republished by <a href="https://github.com/DataTalksClub/nyc-tlc-data/releases">DataTalksClub</a> as monthly gzipped CSV files for Yellow and Green taxis. This project covers 2019 to 2021.</p>
+<ul>
+<li><strong>Format:</strong> CSV, one file per taxi type and month</li>
+<li><strong>Volume:</strong> <!-- PLACEHOLDER: approximate number of rows or GB loaded --></li>
+<li><strong>Schema differences:</strong> Yellow taxis use <code>tpep_</code> timestamps, while Green taxis use <code>lpep_</code> timestamps and add <code>trip_type</code> and <code>ehail_fee</code>, so each type has its own table</li>
+</ul>
+</section>
+<section id="architecture" class="level2">
+<h2 class="anchored" data-anchor-id="architecture">Architecture</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A["DataTalksClub&lt;br/&gt;NYC TLC CSVs"] --&gt; B["Kestra&lt;br/&gt;scheduled flow"]
+    B --&gt; C[("GCS&lt;br/&gt;raw CSV")]
+    C --&gt; D[("BigQuery&lt;br/&gt;external table")]
+    D --&gt; E[("BigQuery&lt;br/&gt;monthly table&lt;br/&gt;+ unique_row_id")]
+    E --&gt;|MERGE| F[("BigQuery&lt;br/&gt;yellow / green tripdata&lt;br/&gt;partitioned")]
+    F --&gt; G["dbt&lt;br/&gt;staging, intermediate, marts"]
+    G --&gt; H["Looker Studio&lt;br/&gt;dashboard"]
+    T["Terraform"] -.provisions.-&gt; C
+    T -.provisions.-&gt; F
+    I["GitHub Actions&lt;br/&gt;dbt parse"] -.validates.-&gt; G
+</pre>
 </div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Sep 30, 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="RGF0YSUyMEFuYWx5c2lzJTJDRURBJTJDUG93ZXIlMjBCSQ==" data-listing-date-sort="1786683600000" data-listing-file-modified-sort="1786771723318" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="237">
-<a href="../projects/coffee-shop-sales/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../projects/coffee-shop-sales/dash.png" class="thumbnail-image card-img" style="height: 220px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Coffee Shop Sales: When and Where Maven Roasters Sells Most
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMEFuYWx5c2lz'); return false;">Data Analysis</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RURB'); return false;">EDA</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UG93ZXIlMjBCSQ=='); return false;">Power BI</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>Exploratory data analysis of sales transactions across three coffee shop locations in NYC.</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Aug 14, 2026
+<p></p></figure><p></p>
 </div>
 </div>
 </div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="RGF0YSUyMEFuYWx5c2lzJTJDRURBJTJDR2Vvc3BhdGlhbA==" data-listing-date-sort="1785387600000" data-listing-file-modified-sort="1786771723290" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="208">
-<a href="../projects/citibike-rebalancing/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../projects/citibike-rebalancing/citibike.jpg" class="thumbnail-image card-img" style="height: 220px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Citi Bike Rebalancing: Where to Send the Vans
-</h5>
-<div class="listing-categories">
+</section>
+<section id="tech-stack" class="level2">
+<h2 class="anchored" data-anchor-id="tech-stack">Tech Stack</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Layer</th>
+<th>Tool</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Infrastructure</td>
+<td>Terraform</td>
+<td>GCS bucket and BigQuery dataset as code</td>
+</tr>
+<tr class="even">
+<td>Orchestration</td>
+<td>Kestra</td>
+<td>Scheduled monthly ingestion flow</td>
+</tr>
+<tr class="odd">
+<td>Storage / Warehouse</td>
+<td>GCS, BigQuery</td>
+<td>Data lake and analytical layer</td>
+</tr>
+<tr class="even">
+<td>Transformation</td>
+<td>dbt</td>
+<td>Staging, intermediate and marts models, plus tests</td>
+</tr>
+<tr class="odd">
+<td>Runtime</td>
+<td>Docker Compose</td>
+<td>Kestra and dbt in a single environment</td>
+</tr>
+<tr class="even">
+<td>CI</td>
+<td>GitHub Actions</td>
+<td><code>dbt parse</code> on every change</td>
+</tr>
+<tr class="odd">
+<td>BI</td>
+<td>Looker Studio</td>
+<td>Final dashboard</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="methodology" class="level2">
+<h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
+<section id="from-the-course" class="level3">
+<h3 class="anchored" data-anchor-id="from-the-course">From the course</h3>
+<ul>
+<li><strong>Infrastructure as code:</strong> Terraform manages the Google Cloud Storage bucket and the BigQuery dataset</li>
+<li><strong>Orchestration:</strong> a Kestra flow downloads the monthly CSV, uploads it to Google Cloud Storage, exposes it as a BigQuery external table and loads it into a monthly table. Two monthly cron triggers run it, one for Green and one for Yellow taxis, and the same flow supports backfills</li>
+<li><strong>Idempotent loads:</strong> each row gets an MD5 <code>unique_row_id</code>, and a <code>MERGE</code> inserts only rows not already in the destination table, so re-running a month does not create duplicates</li>
+<li><strong>Transformation:</strong> dbt models organized in staging, intermediate and marts layers, plus macros</li>
+</ul>
+</section>
+<section id="what-i-added" class="level3">
+<h3 class="anchored" data-anchor-id="what-i-added">What I added</h3>
+<ul>
+<li><strong>Integration in a single environment:</strong> Kestra and dbt run together with Docker Compose, so the whole pipeline starts with one command instead of separate, disconnected setups</li>
+<li><strong>Data quality and CI:</strong> 34 dbt tests, including a custom business-rule test, and a GitHub Actions workflow that runs <code>dbt parse</code> on every change to the <code>dbt/</code> directory <!-- PLACEHOLDER: delete this bullet if the tests and CI come from the course --></li>
+<li><strong>Dashboard and analysis:</strong> a Looker Studio dashboard that answers five business questions about demand, peak hours, revenue by zone and payment method</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Provision the infrastructure</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> terraform</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">terraform</span> init</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">terraform</span> apply</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Start Kestra and dbt</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose up <span class="at">--build</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="data-model" class="level2">
+<h2 class="anchored" data-anchor-id="data-model">Data Model</h2>
+<p>The dbt project is organized in three layers, plus a folder of reusable macros:</p>
+<ul>
+<li><strong>Staging:</strong> <!-- PLACEHOLDER: e.g. one model per source table that renames columns and casts types --></li>
+<li><strong>Intermediate:</strong> <!-- PLACEHOLDER: e.g. unions Yellow and Green trips into a single model --></li>
+<li><strong>Marts:</strong> <!-- PLACEHOLDER: fact and dimension tables that feed the dashboard --></li>
+<li><strong>Macros:</strong> <!-- PLACEHOLDER: e.g. a macro that decodes payment type codes --></li>
+</ul>
+</section>
+<section id="results-discussion" class="level2">
+<h2 class="anchored" data-anchor-id="results-discussion">Results &amp; Discussion</h2>
+<ul>
+<li><strong>Data quality:</strong> the latest dbt run passed 33 of 34 tests. The custom test <code>trips_invalid_time_with_fare</code> flagged 44 trips where the pickup time is equal to or later than the dropoff time, yet the fare and distance are greater than zero</li>
+<li><strong>Demand over time:</strong> the monthly trip volume for Yellow and Green taxis shows clear seasonality and a sharp drop in 2020</li>
+<li><strong>Peak hours:</strong> a weekday-by-hour pivot table reveals the busiest days and pickup hours</li>
+<li><strong>Revenue by zone:</strong> the top 10 zones by total amount are led by the airports, JFK and LaGuardia</li>
+<li><strong>Payment method:</strong> the dashboard compares total amount paid by credit card and by cash <!-- PLACEHOLDER: add the actual result --></li>
+</ul>
+</section>
+<section id="challenges-lessons-learned" class="level2">
+<h2 class="anchored" data-anchor-id="challenges-lessons-learned">Challenges &amp; Lessons Learned</h2>
+<ul>
+<li><strong>Running Kestra and dbt together.</strong> <!-- PLACEHOLDER: what was hard, e.g. sharing credentials between containers, paths for the service account key, or keeping profiles.yml consistent --></li>
+<li><strong>Keeping secrets out of Git.</strong> Credentials, <code>.tfvars</code> and Terraform state are excluded through <code>.gitignore</code></li>
+<li><strong>Data anomalies found by tests.</strong> The custom dbt test surfaced 44 trips with a pickup time later than the dropoff time, which showed that tests catch problems a dashboard would hide</li>
+</ul>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<ul>
+<li>Separate <code>dev</code> and <code>prod</code> environments with distinct datasets in dbt</li>
+<li>Extend CI from <code>dbt parse</code> to <code>dbt build</code> against a test dataset</li>
+<li>Use a dedicated, least-privilege service account for dbt, separate from Terraform’s</li>
+<li>Set the failing business-rule test to <code>warn</code> severity or quarantine the anomalous rows in a staging model</li>
+</ul>
+</section>
+<section id="conclusions" class="level2">
+<h2 class="anchored" data-anchor-id="conclusions">Conclusions</h2>
+<ol type="1">
+<li>Connecting tools that are usually taught separately (Terraform, Kestra, dbt, BigQuery) into one containerized pipeline makes the whole project reproducible from a fresh clone</li>
+<li>Automated tests caught anomalous trips that would otherwise have gone unnoticed in the dashboard, so data quality checks belong inside the pipeline, not after it</li>
+<li>Combining a data pipeline with a business-facing dashboard turns raw trip records into answers a non-technical user can act on</li>
+</ol>
 
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMEFuYWx5c2lz'); return false;">Data Analysis</div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('RURB'); return false;">EDA</div>
+</section>
 
-<div class="listing-category" onclick="window.quartoListingCategory('R2Vvc3BhdGlhbA=='); return false;">Geospatial</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>Exploratory data analysis identifying which bike-share stations most need active rebalancing.</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jul 30, 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="RGF0YSUyMEVuZ2luZWVyaW5nJTJDRVRMJTJDU1FMJTJDRGFzaGJvYXJk" data-listing-date-sort="1768453200000" data-listing-file-modified-sort="1786771723342" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="271">
-<a href="../projects/tipping-analytics-pipeline/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../projects/tipping-analytics-pipeline/real-time-data-streaming.png" class="thumbnail-image card-img" style="height: 220px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Real-Time Tipping Analytics Pipeline
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMEVuZ2luZWVyaW5n'); return false;">Data Engineering</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RVRM'); return false;">ETL</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U1FM'); return false;">SQL</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGFzaGJvYXJk'); return false;">Dashboard</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>Real-time event ingestion and interactive analytics dashboard for a live-streaming platform.</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jan 15, 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
