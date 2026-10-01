@@ -3,7 +3,7 @@ title: "Kelly Jauregui Acevedo"
 description: "Data Scientist & Data Engineer Portfolio"
 about:
   template: trestles
-  image: mi-foto.jpg
+  image: img/mi-foto.jpg
   links:
     - icon: github
       text: GitHub
