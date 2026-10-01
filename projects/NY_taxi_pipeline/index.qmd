@@ -43,7 +43,7 @@ flowchart LR
     T -.provisions.-> F
     I["GitHub Actions<br/>dbt parse"] -.validates.-> G
 ```
-![Pipeline architecture](nyc_taxi_architecture.svg)
+![Pipeline architecture](nyc_taxi_pipeline_architecture.svg)
 
 
 ## Tech Stack
