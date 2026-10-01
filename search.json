@@ -151,7 +151,7 @@
     "href": "projects/tipping-analytics-pipeline/index.html#methodology",
     "title": "Real-Time Tipping Analytics Pipeline",
     "section": "Methodology",
-    "text": "Methodology\n\nReal-time ingestion via long-polling against the platform’s events API (requests, pagination handled through nextUrl)\nEvent deduplication within each session and batch insert into PostgreSQL (Supabase) using psycopg2.extras.execute_batch\nStructured logging and connection-error handling to keep the pipeline running continuously\nInteractive dashboard built with Dash + Plotly: activity heatmaps by time slot/day, user ranking, concentration analysis (Pareto principle), and peak-hour detection per user\n\n# Snippet: ingestion with deduplication\nif evento_id in eventos_vistos:\n    continue\neventos_vistos.add(evento_id)\nlote_datos.append((evento_id, usuario, tokens, hora, fecha))\n\n\n\nData pipeline"
+    "text": "Methodology\n\nReal-time ingestion via long-polling against the platform’s events API (requests, pagination handled through nextUrl)\nEvent deduplication within each session and batch insert into PostgreSQL (Supabase) using psycopg2.extras.execute_batch\nStructured logging and connection-error handling to keep the pipeline running continuously\nInteractive dashboard built with Dash + Plotly: activity heatmaps by time slot/day, user ranking, concentration analysis (Pareto principle), and peak-hour detection per user\n\n# Snippet: ingestion with deduplication\nif evento_id in eventos_vistos:\n    continue\neventos_vistos.add(evento_id)\nlote_datos.append((evento_id, usuario, tokens, hora, fecha))\n\n\n\nPipeline architecture"
   },
   {
     "objectID": "projects/tipping-analytics-pipeline/index.html#results-discussion",
@@ -200,7 +200,7 @@
     "href": "projects/NY_taxi_pipeline/index.html#architecture",
     "title": "NYC Taxi: An End-to-End Data Pipeline on Google Cloud",
     "section": "Architecture",
-    "text": "Architecture\n\n\n\n\n\nflowchart LR\n    A[\"DataTalksClub&lt;br/&gt;NYC TLC CSVs\"] --&gt; B[\"Kestra&lt;br/&gt;scheduled flow\"]\n    B --&gt; C[(\"GCS&lt;br/&gt;raw CSV\")]\n    C --&gt; D[(\"BigQuery&lt;br/&gt;external table\")]\n    D --&gt; E[(\"BigQuery&lt;br/&gt;monthly table&lt;br/&gt;+ unique_row_id\")]\n    E --&gt;|MERGE| F[(\"BigQuery&lt;br/&gt;yellow / green tripdata&lt;br/&gt;partitioned\")]\n    F --&gt; G[\"dbt&lt;br/&gt;staging, intermediate, marts\"]\n    G --&gt; H[\"Looker Studio&lt;br/&gt;dashboard\"]\n    T[\"Terraform\"] -.provisions.-&gt; C\n    T -.provisions.-&gt; F\n    I[\"GitHub Actions&lt;br/&gt;dbt parse\"] -.validates.-&gt; G"
+    "text": "Architecture\n\n\n\n\n\nflowchart LR\n    A[\"DataTalksClub&lt;br/&gt;NYC TLC CSVs\"] --&gt; B[\"Kestra&lt;br/&gt;scheduled flow\"]\n    B --&gt; C[(\"GCS&lt;br/&gt;raw CSV\")]\n    C --&gt; D[(\"BigQuery&lt;br/&gt;external table\")]\n    D --&gt; E[(\"BigQuery&lt;br/&gt;monthly table&lt;br/&gt;+ unique_row_id\")]\n    E --&gt;|MERGE| F[(\"BigQuery&lt;br/&gt;yellow / green tripdata&lt;br/&gt;partitioned\")]\n    F --&gt; G[\"dbt&lt;br/&gt;staging, intermediate, marts\"]\n    G --&gt; H[\"Looker Studio&lt;br/&gt;dashboard\"]\n    T[\"Terraform\"] -.provisions.-&gt; C\n    T -.provisions.-&gt; F\n    I[\"GitHub Actions&lt;br/&gt;dbt parse\"] -.validates.-&gt; G\n\n\n\n\n\n\n\n\n\nPipeline architecture"
   },
   {
     "objectID": "projects/NY_taxi_pipeline/index.html#tech-stack",
@@ -217,18 +217,11 @@
     "text": "Methodology\n\nFrom the course\n\nInfrastructure as code: Terraform manages the Google Cloud Storage bucket and the BigQuery dataset\nOrchestration: a Kestra flow downloads the monthly CSV, uploads it to Google Cloud Storage, exposes it as a BigQuery external table and loads it into a monthly table. Two monthly cron triggers run it, one for Green and one for Yellow taxis, and the same flow supports backfills\nIdempotent loads: each row gets an MD5 unique_row_id, and a MERGE inserts only rows not already in the destination table, so re-running a month does not create duplicates\nTransformation: dbt models organized in staging, intermediate and marts layers, plus macros\n\n\n\nWhat I added\n\nIntegration in a single environment: Kestra and dbt run together with Docker Compose, so the whole pipeline starts with one command instead of separate, disconnected setups\nData quality and CI: 34 dbt tests, including a custom business-rule test, and a GitHub Actions workflow that runs dbt parse on every change to the dbt/ directory \nDashboard and analysis: a Looker Studio dashboard that answers five business questions about demand, peak hours, revenue by zone and payment method\n\n# Provision the infrastructure\ncd terraform\nterraform init\nterraform apply\n\n# Start Kestra and dbt\ncd ..\ndocker compose up --build"
   },
   {
-    "objectID": "projects/NY_taxi_pipeline/index.html#data-model",
-    "href": "projects/NY_taxi_pipeline/index.html#data-model",
-    "title": "NYC Taxi: An End-to-End Data Pipeline on Google Cloud",
-    "section": "Data Model",
-    "text": "Data Model\nThe dbt project is organized in three layers, plus a folder of reusable macros:\n\nStaging: \nIntermediate: \nMarts: \nMacros:"
-  },
-  {
     "objectID": "projects/NY_taxi_pipeline/index.html#results-discussion",
     "href": "projects/NY_taxi_pipeline/index.html#results-discussion",
     "title": "NYC Taxi: An End-to-End Data Pipeline on Google Cloud",
     "section": "Results & Discussion",
-    "text": "Results & Discussion\n\nData quality: the latest dbt run passed 33 of 34 tests. The custom test trips_invalid_time_with_fare flagged 44 trips where the pickup time is equal to or later than the dropoff time, yet the fare and distance are greater than zero\nDemand over time: the monthly trip volume for Yellow and Green taxis shows clear seasonality and a sharp drop in 2020\nPeak hours: a weekday-by-hour pivot table reveals the busiest days and pickup hours\nRevenue by zone: the top 10 zones by total amount are led by the airports, JFK and LaGuardia\nPayment method: the dashboard compares total amount paid by credit card and by cash"
+    "text": "Results & Discussion\n\nData quality: the latest dbt run passed 33 of 34 tests. The custom test trips_invalid_time_with_fare flagged 44 trips where the pickup time is equal to or later than the dropoff time, yet the fare and distance are greater than zero\nDemand over time: the monthly trip volume for Yellow and Green taxis shows clear seasonality and a sharp drop in 2020\nPeak hours: a weekday-by-hour pivot table reveals the busiest days and pickup hours\nRevenue by zone: the top 10 zones by total amount are led by the airports, JFK and LaGuardia\nPayment method: credit card is the dominant payment method, accounting for 72.57% of trips (about 84.8 million), compared with 27.43% for cash (about 32.1 million). Card trips also have a higher average total amount, $19.87 versus $15.67 for cash"
   },
   {
     "objectID": "projects/NY_taxi_pipeline/index.html#challenges-lessons-learned",

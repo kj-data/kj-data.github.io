@@ -116,16 +116,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="me" href="https://github.com/kj-data"><link rel="canonical" href="https://chrisvoncsefalvay.com/projects/NY_taxi_pipeline/">
 <meta property="og:url" content="https://chrisvoncsefalvay.com/projects/NY_taxi_pipeline/">
 <meta property="og:type" content="article">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://chrisvoncsefalvay.com/projects/NY_taxi_pipeline/#article","headline":"NYC Taxi: An End-to-End Data Pipeline on Google Cloud","description":"End-to-end batch ELT pipeline for NYC taxi trips (2019-2021), based on the DataTalksClub Data Engineering Zoomcamp, with Kestra and dbt packaged together in Docker and a Looker Studio dashboard.","url":"https://chrisvoncsefalvay.com/projects/NY_taxi_pipeline/","datePublished":"2026-09-30","dateModified":"2026-09-30","author":{"@id":"https://chrisvoncsefalvay.com/#person"},"publisher":{"@type":"Person","name":"Chris von Csefalvay","url":"https://chrisvoncsefalvay.com","image":{"@type":"ImageObject","url":"https://chrisvoncsefalvay.com/img/portrait_2x3midres.webp"}},"image":"https://chrisvoncsefalvay.com/projects/NY_taxi_pipeline/dashboard.png","keywords":["Data Engineering","dbt","Terraform","BigQuery","Kestra","Docker","GCP","Looker Studio"],"inLanguage":"en","isPartOf":{"@id":"https://chrisvoncsefalvay.com/#website"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://chrisvoncsefalvay.com/projects/NY_taxi_pipeline/"},"speakable":{"@type":"SpeakableSpecification","cssSelector":["article h1",".description","article > section > p:first-of-type"]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://chrisvoncsefalvay.com/projects/NY_taxi_pipeline/#article","headline":"NYC Taxi: An End-to-End Data Pipeline on Google Cloud","description":"End-to-end batch ELT pipeline for NYC taxi trips (2019-2021), based on the DataTalksClub Data Engineering Zoomcamp, with Kestra and dbt packaged together in Docker and a Looker Studio dashboard.","url":"https://chrisvoncsefalvay.com/projects/NY_taxi_pipeline/","datePublished":"2026-09-30","dateModified":"2026-09-30","author":{"@id":"https://chrisvoncsefalvay.com/#person"},"publisher":{"@type":"Person","name":"Chris von Csefalvay","url":"https://chrisvoncsefalvay.com","image":{"@type":"ImageObject","url":"https://chrisvoncsefalvay.com/img/portrait_2x3midres.webp"}},"image":"https://chrisvoncsefalvay.com/projects/NY_taxi_pipeline/taxis.jpg","keywords":["Data Engineering","dbt","Terraform","BigQuery","Kestra","Docker","GCP","Looker Studio"],"inLanguage":"en","isPartOf":{"@id":"https://chrisvoncsefalvay.com/#website"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://chrisvoncsefalvay.com/projects/NY_taxi_pipeline/"},"speakable":{"@type":"SpeakableSpecification","cssSelector":["article h1",".description","article > section > p:first-of-type"]}}</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="NYC Taxi: An End-to-End Data Pipeline on Google Cloud – Kelly Jauregui">
 <meta property="og:description" content="End-to-end batch ELT pipeline for NYC taxi trips (2019-2021), based on the DataTalksClub Data Engineering Zoomcamp, with Kestra and dbt packaged together in Docker and a Looker Studio dashboard.">
-<meta property="og:image" content="https://kj-data.github.io/projects/NY_taxi_pipeline/dashboard.png">
+<meta property="og:image" content="https://kj-data.github.io/projects/NY_taxi_pipeline/taxis.jpg">
 <meta property="og:site_name" content="Kelly Jauregui">
-<meta property="og:image:height" content="660">
-<meta property="og:image:width" content="874">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -212,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Dashboard:</strong> <a href="https://datastudio.google.com/s/rXgknptOQNs">NYC Taxi Analytics Dashboard</a></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="dashboard.png" class="img-fluid figure-img"></p>
+<p><img src="dash.png" class="img-fluid figure-img"></p>
 <figcaption>Looker Studio dashboard</figcaption>
 </figure>
 </div>
@@ -256,6 +254,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p></p></figure><p></p>
 </div>
 </div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="nyc_taxi_architecture.svg" class="img-fluid figure-img"></p>
+<figcaption>Pipeline architecture</figcaption>
+</figure>
 </div>
 </section>
 <section id="tech-stack" class="level2">
@@ -340,16 +344,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose up <span class="at">--build</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="data-model" class="level2">
-<h2 class="anchored" data-anchor-id="data-model">Data Model</h2>
-<p>The dbt project is organized in three layers, plus a folder of reusable macros:</p>
-<ul>
-<li><strong>Staging:</strong> <!-- PLACEHOLDER: e.g. one model per source table that renames columns and casts types --></li>
-<li><strong>Intermediate:</strong> <!-- PLACEHOLDER: e.g. unions Yellow and Green trips into a single model --></li>
-<li><strong>Marts:</strong> <!-- PLACEHOLDER: fact and dimension tables that feed the dashboard --></li>
-<li><strong>Macros:</strong> <!-- PLACEHOLDER: e.g. a macro that decodes payment type codes --></li>
-</ul>
-</section>
 <section id="results-discussion" class="level2">
 <h2 class="anchored" data-anchor-id="results-discussion">Results &amp; Discussion</h2>
 <ul>
@@ -357,7 +351,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Demand over time:</strong> the monthly trip volume for Yellow and Green taxis shows clear seasonality and a sharp drop in 2020</li>
 <li><strong>Peak hours:</strong> a weekday-by-hour pivot table reveals the busiest days and pickup hours</li>
 <li><strong>Revenue by zone:</strong> the top 10 zones by total amount are led by the airports, JFK and LaGuardia</li>
-<li><strong>Payment method:</strong> the dashboard compares total amount paid by credit card and by cash <!-- PLACEHOLDER: add the actual result --></li>
+<li><strong>Payment method:</strong> credit card is the dominant payment method, accounting for 72.57% of trips (about 84.8 million), compared with 27.43% for cash (about 32.1 million). Card trips also have a higher average total amount, $19.87 versus $15.67 for cash</li>
 </ul>
 </section>
 <section id="challenges-lessons-learned" class="level2">
