@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://kj-data.github.io/projects/tipping-analytics-pipeline/index.html</loc>
-    <lastmod>2026-09-30T23:36:47.810Z</lastmod>
-  </url>
-  <url>
     <loc>https://kj-data.github.io/projects/coffee-shop-sales/index.html</loc>
-    <lastmod>2026-08-15T05:28:43.318Z</lastmod>
-  </url>
-  <url>
-    <loc>https://kj-data.github.io/portfolio/index.html</loc>
-    <lastmod>2026-08-15T05:28:43.284Z</lastmod>
-  </url>
-  <url>
-    <loc>https://kj-data.github.io/about/index.html</loc>
-    <lastmod>2026-08-15T05:28:43.255Z</lastmod>
-  </url>
-  <url>
-    <loc>https://kj-data.github.io/index.html</loc>
-    <lastmod>2026-08-15T05:28:43.276Z</lastmod>
+    <lastmod>2026-10-01T00:23:10.308Z</lastmod>
   </url>
   <url>
     <loc>https://kj-data.github.io/projects/citibike-rebalancing/index.html</loc>
-    <lastmod>2026-08-15T05:28:43.290Z</lastmod>
+    <lastmod>2026-10-01T00:23:10.305Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kj-data.github.io/about/index.html</loc>
+    <lastmod>2026-10-01T00:23:10.300Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kj-data.github.io/index.html</loc>
+    <lastmod>2026-10-01T00:23:10.302Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kj-data.github.io/portfolio/index.html</loc>
+    <lastmod>2026-10-01T00:23:10.302Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kj-data.github.io/projects/tipping-analytics-pipeline/index.html</loc>
+    <lastmod>2026-10-01T00:23:10.309Z</lastmod>
   </url>
   <url>
     <loc>https://kj-data.github.io/projects/NY_taxi_pipeline/index.html</loc>
-    <lastmod>2026-10-01T00:11:54.492Z</lastmod>
+    <lastmod>2026-10-01T00:23:10.303Z</lastmod>
   </url>
 </urlset>
