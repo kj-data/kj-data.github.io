@@ -7,9 +7,11 @@ resources:
   - robots.txt
 
 website:
+  
   site-url: "https://kj-data.github.io"
   title: "Kelly Jauregui"
   description: "Kelly Jauregui is a Chemical Engineer transitioning into Data Science and Data Engineering. Showcasing projects in Python, SQL, Machine Learning, and data visualization."
+  favicon: logo.jpg
   navbar:
     left:
       - href: index.qmd
