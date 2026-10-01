@@ -1,40 +1,5 @@
 [
   {
-    "objectID": "projects/tipping-analytics-pipeline/index.html",
-    "href": "projects/tipping-analytics-pipeline/index.html",
-    "title": "Real-Time Tipping Analytics Pipeline",
-    "section": "",
-    "text": "Repositories Github: Ingestion pipeline · Dashboard\nBest time to go live: which day and hour see the most activity?"
-  },
-  {
-    "objectID": "projects/tipping-analytics-pipeline/index.html#problem",
-    "href": "projects/tipping-analytics-pipeline/index.html#problem",
-    "title": "Real-Time Tipping Analytics Pipeline",
-    "section": "Problem",
-    "text": "Problem\nLive-streaming platforms generate real-time interaction events (tips/donations), but without proper capture and structuring, this data is lost — making it impossible to identify audience patterns or user behavior over time."
-  },
-  {
-    "objectID": "projects/tipping-analytics-pipeline/index.html#methodology",
-    "href": "projects/tipping-analytics-pipeline/index.html#methodology",
-    "title": "Real-Time Tipping Analytics Pipeline",
-    "section": "Methodology",
-    "text": "Methodology\n\nReal-time ingestion via long-polling against the platform’s events API (requests, pagination handled through nextUrl)\nEvent deduplication within each session and batch insert into PostgreSQL (Supabase) using psycopg2.extras.execute_batch\nStructured logging and connection-error handling to keep the pipeline running continuously\nInteractive dashboard built with Dash + Plotly: activity heatmaps by time slot/day, user ranking, concentration analysis (Pareto principle), and peak-hour detection per user\n\n# Snippet: ingestion with deduplication\nif evento_id in eventos_vistos:\n    continue\neventos_vistos.add(evento_id)\nlote_datos.append((evento_id, usuario, tokens, hora, fecha))\n\n\n\nPipeline architecture"
-  },
-  {
-    "objectID": "projects/tipping-analytics-pipeline/index.html#results-discussion",
-    "href": "projects/tipping-analytics-pipeline/index.html#results-discussion",
-    "title": "Real-Time Tipping Analytics Pipeline",
-    "section": "Results & Discussion",
-    "text": "Results & Discussion\nThe dashboard revealed that the top 10 users account for a disproportionate share of total activity — a Pareto-like concentration pattern — and made it possible to identify peak engagement time slots by day of the week. It also enables instant weekly and biweekly reports to track trends in donor behavior over time.\n\n\n\nWeekly token contributions by user (anonymized)"
-  },
-  {
-    "objectID": "projects/tipping-analytics-pipeline/index.html#conclusions",
-    "href": "projects/tipping-analytics-pipeline/index.html#conclusions",
-    "title": "Real-Time Tipping Analytics Pipeline",
-    "section": "Conclusions",
-    "text": "Conclusions\n\nA real-time ingestion pipeline with deduplication is achievable even without complex streaming infrastructure (e.g., Kafka)\nInteractive visualization — rather than static reports — makes it much easier to explore temporal audience patterns\nNext step: extend the pipeline to track multiple channels and package it as a subscription service, monetizing the analytics to help cover hosting costs (the pipeline ran fully automated during the Railway free trial; continuous operation now requires a paid tier, as expected for production infrastructure)"
-  },
-  {
     "objectID": "projects/coffee-shop-sales/index.html",
     "href": "projects/coffee-shop-sales/index.html",
     "title": "Coffee Shop Sales: When and Where Maven Roasters Sells Most",
@@ -70,11 +35,39 @@
     "text": "Conclusions\n\nSales volume and revenue generated aren’t always aligned by product — some low-volume products drive more revenue per unit\nDay/hour patterns are key for optimizing staff allocation and avoiding bottlenecks during peak hours"
   },
   {
-    "objectID": "portfolio/index.html",
-    "href": "portfolio/index.html",
-    "title": "Portfolio",
+    "objectID": "projects/citibike-rebalancing/index.html",
+    "href": "projects/citibike-rebalancing/index.html",
+    "title": "Citi Bike Rebalancing: Where to Send the Vans",
     "section": "",
-    "text": "NYC Taxi: An End-to-End Data Pipeline on Google Cloud\n\n\n\nData Engineering\n\ndbt\n\nTerraform\n\nBigQuery\n\nKestra\n\nDocker\n\nGCP\n\nLooker Studio\n\n\n\nEnd-to-end batch ELT pipeline for NYC taxi trips (2019-2021), based on the DataTalksClub Data Engineering Zoomcamp, with Kestra and dbt packaged together in Docker and a…\n\n\n\nSep 30, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nCoffee Shop Sales: When and Where Maven Roasters Sells Most\n\n\n\nData Analysis\n\nEDA\n\nPower BI\n\n\n\nExploratory data analysis of sales transactions across three coffee shop locations in NYC.\n\n\n\nAug 14, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nCiti Bike Rebalancing: Where to Send the Vans\n\n\n\nData Analysis\n\nEDA\n\nGeospatial\n\n\n\nExploratory data analysis identifying which bike-share stations most need active rebalancing.\n\n\n\nJul 30, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nReal-Time Tipping Analytics Pipeline\n\n\n\nData Engineering\n\nETL\n\nSQL\n\nDashboard\n\n\n\nReal-time event ingestion and interactive analytics dashboard for a live-streaming platform.\n\n\n\nJan 15, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Repository: View on GitHub"
+  },
+  {
+    "objectID": "projects/citibike-rebalancing/index.html#problem",
+    "href": "projects/citibike-rebalancing/index.html#problem",
+    "title": "Citi Bike Rebalancing: Where to Send the Vans",
+    "section": "Problem",
+    "text": "Problem\nNew York’s Citi Bike stations suffer from inventory imbalance throughout the day — some stations empty out or overflow depending on the hour — forcing costly logistical decisions about which stations to prioritize for van-based bike rebalancing."
+  },
+  {
+    "objectID": "projects/citibike-rebalancing/index.html#methodology",
+    "href": "projects/citibike-rebalancing/index.html#methodology",
+    "title": "Citi Bike Rebalancing: Where to Send the Vans",
+    "section": "Methodology",
+    "text": "Methodology\n\nExploratory analysis with pandas + seaborn: trip duration distribution, correlation by user type (Subscriber vs. Customer)\nTime segmentation into hourly bands (Morning_rush_hours, day_time_hour, evening_rush_hour, off_peak_hour)\nVariance of usage per station across time bands — stations with high variance are the ones that fluctuate the most and need dynamic rebalancing\nGeospatial mapping with folium to visualize station popularity by location\n\ndf3['variance'] = df3[['Morning_rush_hours', 'day_time_hour',\n                        'evening_rush_hour', 'off_peak_hour']].var(axis=1)\ndf3.sort_values('variance', ascending=False)\n\n\n\nStation variance ranking"
+  },
+  {
+    "objectID": "projects/citibike-rebalancing/index.html#results-discussion",
+    "href": "projects/citibike-rebalancing/index.html#results-discussion",
+    "title": "Citi Bike Rebalancing: Where to Send the Vans",
+    "section": "Results & Discussion",
+    "text": "Results & Discussion\nThe analysis identified the 20 stations with the highest usage variance across time bands — priority candidates for active rebalancing, distinct from the stations that are simply the “most popular” by total volume."
+  },
+  {
+    "objectID": "projects/citibike-rebalancing/index.html#conclusions",
+    "href": "projects/citibike-rebalancing/index.html#conclusions",
+    "title": "Citi Bike Rebalancing: Where to Send the Vans",
+    "section": "Conclusions",
+    "text": "Conclusions\n\nTotal usage volume ≠ rebalancing need — variance across time bands is the correct indicator\nTime segmentation (rush hours vs. off-peak) is key for urban logistics decisions\nNext step: a predictive demand model per station/hour to automate route assignment"
   },
   {
     "objectID": "about/index.html",
@@ -133,39 +126,46 @@
     "text": "What I’m looking for\nI’m actively seeking remote opportunities as a Data Scientist or Data Engineer, where I can apply my engineering background to solve real data problems with international teams."
   },
   {
-    "objectID": "projects/citibike-rebalancing/index.html",
-    "href": "projects/citibike-rebalancing/index.html",
-    "title": "Citi Bike Rebalancing: Where to Send the Vans",
+    "objectID": "portfolio/index.html",
+    "href": "portfolio/index.html",
+    "title": "Portfolio",
     "section": "",
-    "text": "Repository: View on GitHub"
+    "text": "NYC Taxi: An End-to-End Data Pipeline on Google Cloud\n\n\n\nData Engineering\n\ndbt\n\nTerraform\n\nBigQuery\n\nKestra\n\nDocker\n\nGCP\n\nLooker Studio\n\n\n\nEnd-to-end batch ELT pipeline for NYC taxi trips (2019-2021), based on the DataTalksClub Data Engineering Zoomcamp, with Kestra and dbt packaged together in Docker and a…\n\n\n\nSep 30, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nCoffee Shop Sales: When and Where Maven Roasters Sells Most\n\n\n\nData Analysis\n\nEDA\n\nPower BI\n\n\n\nExploratory data analysis of sales transactions across three coffee shop locations in NYC.\n\n\n\nAug 14, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nCiti Bike Rebalancing: Where to Send the Vans\n\n\n\nData Analysis\n\nEDA\n\nGeospatial\n\n\n\nExploratory data analysis identifying which bike-share stations most need active rebalancing.\n\n\n\nJul 30, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nReal-Time Tipping Analytics Pipeline\n\n\n\nData Engineering\n\nETL\n\nSQL\n\nDashboard\n\n\n\nReal-time event ingestion and interactive analytics dashboard for a live-streaming platform.\n\n\n\nJan 15, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "projects/citibike-rebalancing/index.html#problem",
-    "href": "projects/citibike-rebalancing/index.html#problem",
-    "title": "Citi Bike Rebalancing: Where to Send the Vans",
+    "objectID": "projects/tipping-analytics-pipeline/index.html",
+    "href": "projects/tipping-analytics-pipeline/index.html",
+    "title": "Real-Time Tipping Analytics Pipeline",
+    "section": "",
+    "text": "Repositories Github: Ingestion pipeline · Dashboard\nBest time to go live: which day and hour see the most activity?"
+  },
+  {
+    "objectID": "projects/tipping-analytics-pipeline/index.html#problem",
+    "href": "projects/tipping-analytics-pipeline/index.html#problem",
+    "title": "Real-Time Tipping Analytics Pipeline",
     "section": "Problem",
-    "text": "Problem\nNew York’s Citi Bike stations suffer from inventory imbalance throughout the day — some stations empty out or overflow depending on the hour — forcing costly logistical decisions about which stations to prioritize for van-based bike rebalancing."
+    "text": "Problem\nLive-streaming platforms generate real-time interaction events (tips/donations), but without proper capture and structuring, this data is lost — making it impossible to identify audience patterns or user behavior over time."
   },
   {
-    "objectID": "projects/citibike-rebalancing/index.html#methodology",
-    "href": "projects/citibike-rebalancing/index.html#methodology",
-    "title": "Citi Bike Rebalancing: Where to Send the Vans",
+    "objectID": "projects/tipping-analytics-pipeline/index.html#methodology",
+    "href": "projects/tipping-analytics-pipeline/index.html#methodology",
+    "title": "Real-Time Tipping Analytics Pipeline",
     "section": "Methodology",
-    "text": "Methodology\n\nExploratory analysis with pandas + seaborn: trip duration distribution, correlation by user type (Subscriber vs. Customer)\nTime segmentation into hourly bands (Morning_rush_hours, day_time_hour, evening_rush_hour, off_peak_hour)\nVariance of usage per station across time bands — stations with high variance are the ones that fluctuate the most and need dynamic rebalancing\nGeospatial mapping with folium to visualize station popularity by location\n\ndf3['variance'] = df3[['Morning_rush_hours', 'day_time_hour',\n                        'evening_rush_hour', 'off_peak_hour']].var(axis=1)\ndf3.sort_values('variance', ascending=False)\n\n\n\nStation variance ranking"
+    "text": "Methodology\n\nReal-time ingestion via long-polling against the platform’s events API (requests, pagination handled through nextUrl)\nEvent deduplication within each session and batch insert into PostgreSQL (Supabase) using psycopg2.extras.execute_batch\nStructured logging and connection-error handling to keep the pipeline running continuously\nInteractive dashboard built with Dash + Plotly: activity heatmaps by time slot/day, user ranking, concentration analysis (Pareto principle), and peak-hour detection per user\n\n# Snippet: ingestion with deduplication\nif evento_id in eventos_vistos:\n    continue\neventos_vistos.add(evento_id)\nlote_datos.append((evento_id, usuario, tokens, hora, fecha))\n\n\n\nPipeline architecture"
   },
   {
-    "objectID": "projects/citibike-rebalancing/index.html#results-discussion",
-    "href": "projects/citibike-rebalancing/index.html#results-discussion",
-    "title": "Citi Bike Rebalancing: Where to Send the Vans",
+    "objectID": "projects/tipping-analytics-pipeline/index.html#results-discussion",
+    "href": "projects/tipping-analytics-pipeline/index.html#results-discussion",
+    "title": "Real-Time Tipping Analytics Pipeline",
     "section": "Results & Discussion",
-    "text": "Results & Discussion\nThe analysis identified the 20 stations with the highest usage variance across time bands — priority candidates for active rebalancing, distinct from the stations that are simply the “most popular” by total volume."
+    "text": "Results & Discussion\nThe dashboard revealed that the top 10 users account for a disproportionate share of total activity — a Pareto-like concentration pattern — and made it possible to identify peak engagement time slots by day of the week. It also enables instant weekly and biweekly reports to track trends in donor behavior over time.\n\n\n\nWeekly token contributions by user (anonymized)"
   },
   {
-    "objectID": "projects/citibike-rebalancing/index.html#conclusions",
-    "href": "projects/citibike-rebalancing/index.html#conclusions",
-    "title": "Citi Bike Rebalancing: Where to Send the Vans",
+    "objectID": "projects/tipping-analytics-pipeline/index.html#conclusions",
+    "href": "projects/tipping-analytics-pipeline/index.html#conclusions",
+    "title": "Real-Time Tipping Analytics Pipeline",
     "section": "Conclusions",
-    "text": "Conclusions\n\nTotal usage volume ≠ rebalancing need — variance across time bands is the correct indicator\nTime segmentation (rush hours vs. off-peak) is key for urban logistics decisions\nNext step: a predictive demand model per station/hour to automate route assignment"
+    "text": "Conclusions\n\nA real-time ingestion pipeline with deduplication is achievable even without complex streaming infrastructure (e.g., Kafka)\nInteractive visualization — rather than static reports — makes it much easier to explore temporal audience patterns\nNext step: extend the pipeline to track multiple channels and package it as a subscription service, monetizing the analytics to help cover hosting costs (the pipeline ran fully automated during the Railway free trial; continuous operation now requires a paid tier, as expected for production infrastructure)"
   },
   {
     "objectID": "projects/NY_taxi_pipeline/index.html",
