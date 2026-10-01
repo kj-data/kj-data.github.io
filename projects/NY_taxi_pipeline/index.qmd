@@ -2,7 +2,7 @@
 title: "NYC Taxi: An End-to-End Data Pipeline on Google Cloud"
 description: "End-to-end batch ELT pipeline for NYC taxi trips (2019-2021), based on the DataTalksClub Data Engineering Zoomcamp, with Kestra and dbt packaged together in Docker and a Looker Studio dashboard."
 date: 2026-09-30
-image: dashboard.png  # <-- PLACEHOLDER: copy images/dashboard.png from the repo
+image: taxis.jpg  # <-- PLACEHOLDER: copy images/dashboard.png from the repo
 categories: [Data Engineering, dbt, Terraform, BigQuery, Kestra, Docker, GCP, Looker Studio]
 comments: false
 ---
@@ -10,7 +10,7 @@ comments: false
 
 **Dashboard:** [NYC Taxi Analytics Dashboard](https://datastudio.google.com/s/rXgknptOQNs)
 
-![Looker Studio dashboard](dashboard.png)
+![Looker Studio dashboard](dash.png)
 
 ## Credits
 
@@ -43,6 +43,8 @@ flowchart LR
     T -.provisions.-> F
     I["GitHub Actions<br/>dbt parse"] -.validates.-> G
 ```
+![Pipeline architecture](nyc_taxi_architecture.svg)
+
 
 ## Tech Stack
 
@@ -82,22 +84,13 @@ cd ..
 docker compose up --build
 ```
 
-## Data Model
-
-The dbt project is organized in three layers, plus a folder of reusable macros:
-
-- **Staging:** <!-- PLACEHOLDER: e.g. one model per source table that renames columns and casts types -->
-- **Intermediate:** <!-- PLACEHOLDER: e.g. unions Yellow and Green trips into a single model -->
-- **Marts:** <!-- PLACEHOLDER: fact and dimension tables that feed the dashboard -->
-- **Macros:** <!-- PLACEHOLDER: e.g. a macro that decodes payment type codes -->
-
 ## Results & Discussion
 
 - **Data quality:** the latest dbt run passed 33 of 34 tests. The custom test `trips_invalid_time_with_fare` flagged 44 trips where the pickup time is equal to or later than the dropoff time, yet the fare and distance are greater than zero
 - **Demand over time:** the monthly trip volume for Yellow and Green taxis shows clear seasonality and a sharp drop in 2020
 - **Peak hours:** a weekday-by-hour pivot table reveals the busiest days and pickup hours
 - **Revenue by zone:** the top 10 zones by total amount are led by the airports, JFK and LaGuardia
-- **Payment method:** the dashboard compares total amount paid by credit card and by cash <!-- PLACEHOLDER: add the actual result -->
+- **Payment method:** credit card is the dominant payment method, accounting for 72.57% of trips (about 84.8 million), compared with 27.43% for cash (about 32.1 million). Card trips also have a higher average total amount, $19.87 versus $15.67 for cash
 
 ## Challenges & Lessons Learned
 

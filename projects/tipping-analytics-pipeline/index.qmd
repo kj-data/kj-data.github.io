@@ -33,7 +33,7 @@ eventos_vistos.add(evento_id)
 lote_datos.append((evento_id, usuario, tokens, hora, fecha))
 ```
 
-![Data pipeline](Data_pipeline.png)
+![Pipeline architecture](tipping_pipeline_architecture.svg)
 
 ## Results & Discussion
 
