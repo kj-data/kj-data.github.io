@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Chris von Csefalvay">
+<meta name="dcterms.date" content="2025-12-20">
+<meta name="description" content="On the comfortable delusion of a unitary post-training discipline.">
+
+<title>Post-training: three disciplines in a trenchcoat – Chris von Csefalvay</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-a3252ae49e7bd5aa35e3e16a7e0fe469.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=395640625"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '395640625', { 'anonymize_ip': true});
+</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://chrisvoncsefalvay.com/#person","name":"Chris von Csefalvay","givenName":"Chris","familyName":"von Csefalvay","jobTitle":"Principal","description":"Chris von Csefalvay is a Principal at HCLTech's AI Practice, leading post-training research and clinical intelligence. He is an AI researcher and computational epidemiologist and the author of The Craft of Post-Training: A Practical Guide for AI Engineers and Developers (No Starch Press, July 2026) and Computational Modeling of Infectious Disease (Elsevier, 2023).","url":"https://chrisvoncsefalvay.com","image":"https://chrisvoncsefalvay.com/img/portrait_2x3midres.webp","sameAs":["https://orcid.org/0000-0003-3131-0864","https://scholar.google.com/citations?user=X_2G-VsAAAAJ","https://www.wikidata.org/wiki/Q107095298","https://hu.wikipedia.org/wiki/Chris_von_Csefalvay","https://github.com/chrisvoncsefalvay","https://twitter.com/epichrisis","https://www.linkedin.com/in/chrisvoncsefalvay/","https://www.instagram.com/chrisvoncsefalvay/","https://viaf.org/viaf/7190162669581955500004","https://isni.org/isni/0000000502655729","https://www.webofscience.com/wos/author/record/IZD-6900-2023","https://osf.io/awhgj","https://en.wikiquote.org/wiki/Chris_von_Csefalvay","https://www.researchgate.net/profile/Chris-Von-Csefalvay","https://www.crunchbase.com/person/chris-von-csefalvay","https://dblp.org/pid/157/8137.html","https://www.goodreads.com/author/show/15108248.Chris_von_Csefalvay","https://golden.com/wiki/Chris_von_Csefalvay-BY88G48","https://oxford.academia.edu/ChrisVonCsefalvay","https://medium.com/@chrisvcsefalvay","https://commons.wikimedia.org/wiki/Category:Chris_von_Csefalvay","https://sciprofiles.com/profile/1163482"],"address":{"@type":"PostalAddress","addressLocality":"Denver","addressRegion":"CO","addressCountry":"United States"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Oxford","sameAs":"https://en.wikipedia.org/wiki/University_of_Oxford"},{"@type":"CollegeOrUniversity","name":"Cardiff University","sameAs":"https://en.wikipedia.org/wiki/Cardiff_University"}],"worksFor":{"@type":"Organization","@id":"https://www.hcltech.com/#organization","name":"HCLTech","url":"https://www.hcltech.com","sameAs":"https://en.wikipedia.org/wiki/HCLTech"},"birthDate":"1986-07-15","birthPlace":{"@type":"Place","name":"Budapest","address":{"@type":"PostalAddress","addressCountry":"HU"}},"nationality":[{"@type":"Country","name":"United Kingdom"},{"@type":"Country","name":"Hungary"}],"memberOf":[{"@type":"Organization","name":"Royal Society for Public Health"},{"@type":"Organization","name":"IEEE"}],"knowsAbout":["post-training for language models","supervised fine-tuning","reinforcement learning from verifiable rewards","group relative policy optimization","agentic AI systems","multi-agent frameworks","large language models","LLM evaluation","computational epidemiology","AI alignment","LLMOps"],"hasCredential":[{"@type":"EducationalOccupationalCredential","name":"Certified in Public Health (CPH)","credentialCategory":"Professional Certification","recognizedBy":{"@type":"Organization","name":"National Board of Public Health Examiners","url":"https://www.nbphe.org"}},{"@type":"EducationalOccupationalCredential","name":"Fellow of the Royal Society for Public Health (FRSPH)","credentialCategory":"Fellowship","recognizedBy":{"@type":"Organization","name":"Royal Society for Public Health","url":"https://www.rsph.org.uk","sameAs":"https://en.wikipedia.org/wiki/Royal_Society_for_Public_Health"}},{"@type":"EducationalOccupationalCredential","name":"IEEE Senior Member","credentialCategory":"Professional Membership","recognizedBy":{"@type":"Organization","name":"IEEE","url":"https://www.ieee.org","sameAs":"https://en.wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engineers"}}],"hasOccupation":{"@type":"Occupation","name":"AI Researcher and Computational Epidemiologist","occupationalCategory":"15-2051.00","skills":["Machine Learning","Natural Language Processing","Epidemiological Modeling","Reinforcement Learning","Large Language Models"]},"award":"Martin Wronker Prize, University of Oxford"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://chrisvoncsefalvay.com/#book-post-training","name":"The Craft of Post-Training","alternativeHeadline":"A Practical Guide for AI Engineers and Developers","isbn":"9781718505209","numberOfPages":416,"bookFormat":"https://schema.org/Paperback","inLanguage":"en","publisher":{"@type":"Organization","name":"No Starch Press"},"url":"https://posttraining.guide","sameAs":"https://nostarch.com/craft-of-post-training","datePublished":"2026","author":{"@id":"https://chrisvoncsefalvay.com/#person"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://chrisvoncsefalvay.com/#book-cmid","name":"Computational Modeling of Infectious Disease","isbn":"9780323953894","inLanguage":"en","publisher":{"@type":"Organization","name":"Elsevier"},"url":"https://computationalinfectiousdisease.com","sameAs":"https://shop.elsevier.com/books/computational-modeling-of-infectious-disease/von-csefalvay/978-0-323-95389-4","datePublished":"2023-06-01","author":{"@id":"https://chrisvoncsefalvay.com/#person"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://chrisvoncsefalvay.com/#website","name":"Chris von Csefalvay","url":"https://chrisvoncsefalvay.com","author":{"@id":"https://chrisvoncsefalvay.com/#person"},"description":"Chris von Csefalvay is an AI researcher and computational epidemiologist specialising in post-training for language models, agentic AI systems, and reinforcement learning from verifiable rewards.","inLanguage":"en"}</script>
+<meta name="author" content="Chris von Csefalvay">
+<link rel="me" href="https://github.com/chrisvoncsefalvay">
+<link rel="me" href="https://www.linkedin.com/in/chrisvoncsefalvay/">
+<link rel="me" href="https://orcid.org/0000-0003-3131-0864">
+<link rel="me" href="https://twitter.com/epichrisis">
+<link rel="me" href="https://www.wikidata.org/wiki/Q107095298">
+<link rel="me" href="https://scholar.google.com/citations?user=X_2G-VsAAAAJ"><link rel="canonical" href="https://chrisvoncsefalvay.com/\posts\post-training-scale\">
+<meta property="og:url" content="https://chrisvoncsefalvay.com/\posts\post-training-scale\">
+<meta property="og:type" content="article">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://chrisvoncsefalvay.com/\\posts\\post-training-scale\\#article","headline":"Post-training: three disciplines in a trenchcoat","description":"On the comfortable delusion of a unitary post-training discipline.","url":"https://chrisvoncsefalvay.com/\\posts\\post-training-scale\\","datePublished":"2025-12-20","dateModified":"2025-12-20","author":{"@id":"https://chrisvoncsefalvay.com/#person"},"publisher":{"@type":"Person","name":"Chris von Csefalvay","url":"https://chrisvoncsefalvay.com","image":{"@type":"ImageObject","url":"https://chrisvoncsefalvay.com/img/portrait_2x3midres.webp"}},"image":"https://chrisvoncsefalvay.com/\\posts\\post-training-scale\\/header.webp","keywords":["AI","LLMs","post-training"],"inLanguage":"en","isPartOf":{"@id":"https://chrisvoncsefalvay.com/#website"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://chrisvoncsefalvay.com/\\posts\\post-training-scale\\"},"speakable":{"@type":"SpeakableSpecification","cssSelector":["article h1",".description","article > section > p:first-of-type"]}}</script>
+
+
+<meta property="og:title" content="Post-training: three disciplines in a trenchcoat – Chris von Csefalvay">
+<meta property="og:description" content="On the comfortable delusion of a unitary post-training discipline.">
+<meta property="og:image" content="https://chrisvoncsefalvay.com/posts/post-training-scale/header.webp">
+<meta property="og:site_name" content="Chris von Csefalvay">
+<meta name="twitter:title" content="Post-training: three disciplines in a trenchcoat – Chris von Csefalvay">
+<meta name="twitter:description" content="On the comfortable delusion of a unitary post-training discipline.">
+<meta name="twitter:image" content="https://chrisvoncsefalvay.com/posts/post-training-scale/header.webp">
+<meta name="twitter:creator" content="@epichrisis">
+<meta name="twitter:site" content="@epichrisis">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="citation_title" content="Post-training: three disciplines in a trenchcoat">
+<meta name="citation_author" content="Chris von Csefalvay">
+<meta name="citation_publication_date" content="2025-12-20">
+<meta name="citation_cover_date" content="2025-12-20">
+<meta name="citation_year" content="2025">
+<meta name="citation_online_date" content="2025-12-20">
+<meta name="citation_fulltext_html_url" content="https://chrisvoncsefalvay.com/posts/post-training-scale/">
+<meta name="citation_language" content="en-GB">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Chris von Csefalvay</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../papers"> 
+<span class="menu-text">Papers</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../media"> 
+<span class="menu-text">Media</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts"> 
+<span class="menu-text">The Notebook</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks"> 
+<span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://computationalinfectiousdisease.com"> 
+<span class="menu-text">Computational Modeling of Infectious Disease</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://nostarch.com/craft-of-post-training"> 
+<span class="menu-text">The Craft of Post-Training</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#memscale-the-tyranny-of-vram" id="toc-memscale-the-tyranny-of-vram" class="nav-link active" data-scroll-target="#memscale-the-tyranny-of-vram">Memscale: The tyranny of VRAM</a></li>
+  <li><a href="#flopscale-the-discipline-of-unit-economics" id="toc-flopscale-the-discipline-of-unit-economics" class="nav-link" data-scroll-target="#flopscale-the-discipline-of-unit-economics">Flopscale: The discipline of unit economics</a></li>
+  <li><a href="#powerscale-the-infrastructure-of-nations" id="toc-powerscale-the-infrastructure-of-nations" class="nav-link" data-scroll-target="#powerscale-the-infrastructure-of-nations">Powerscale: The infrastructure of nations</a></li>
+  <li><a href="#the-diffusion-problem" id="toc-the-diffusion-problem" class="nav-link" data-scroll-target="#the-diffusion-problem">The diffusion problem</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Post-training: three disciplines in a trenchcoat</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">AI</div>
+    <div class="quarto-category">LLMs</div>
+    <div class="quarto-category">post-training</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    On the comfortable delusion of a unitary post-training discipline.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Chris von Csefalvay <a href="mailto:chris@chrisvoncsefalvay.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0003-3131-0864" class="quarto-title-author-orcid" aria-label="ORCID profile for Chris von Csefalvay"> <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">20 December 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hey, I’m writing a book about this!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I’m actually writing a book about this stuff. It turns out there isn’t a lot of literature on how to do post-training at the level too big for single-GPU laptop-sized hobby projects and requiring enterprise reliability on one hand, but not quite at the scale of multi-team distributed post-training you’d get in foundation labs. That’s a problem, because a lot of the current value in fine-tuning applications comes exactly out of that large, crucial market. I am in the last phases of putting together the manuscript for <em>The Frontier Playbook</em>, a set of curated tactics and techniques for real world operationalisation of LLMs. <a href="https://aifrontierplaybook.substack.com">Sign up for updates here</a>.</p>
+</div>
+</div>
+<p>There’s a comfortable fiction in AI that “post-training” names a coherent discipline. We speak of it as though the researcher fine-tuning Llama on a 3090 and the infrastructure team planning a 500MW RLHF run are engaged in the same enterprise at different magnitudes. And yes, in a very philosophical sense, they are. It’s just that that philosophical acuity reflects pretty much none of the parts of reality that matter. And that’s a problem for our allegedly unitary discipline.</p>
+<p>Pre-training never had to confront this problem. The barriers to entry were so astronomical that there was never any pretence of an on-ramp. You either had foundation lab resources or you didn’t, and if you didn’t, you weren’t doing pre-training. This hasn’t really shifted – the kind of pre-training/scaling needed to create true foundation models is limited to a vanishingly small part of the world (more people have been to outer space than have managed a capital foundation model). The conversation is contained, the community is small and everyone who needs to know what something means already knows it.</p>
+<p>Post-training is different. It is democratised, and will only become more so as efficient (esp.&nbsp;<em>memory</em>-efficient) methods proliferate. The barriers of entry have never been lower. At the moment, you can run toy examples of cutting edge techniques for free with the <a href="https://github.com/unsloth-ai/notebooks">Unsloth notebooks</a> on Google Colab. Consumer GPUs can, with some ingenuity, run fine-tuning experiments that would have been unthinkable a few years ago. The on-ramps are everywhere.</p>
+<p>But not to everything.</p>
+<p>Post-training is not one discipline. It is three,<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> awkwardly sharing a name. The binding constraints, the core competencies, the failure modes differ qualitatively across regimes. Perhaps most poignantly, the governing constraints are so different, they do not share a continuum.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;At least. Arguably there’s token-scale, where users buy API access or other consumer products. There’s not a lot of what would merit being referred to as post-training there, though, so we shall omit mention.</p></div></div><div id="tbl-regimes" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regimes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: The three regimes of post-training, distinguished by their binding constraints.
+</figcaption>
+<div aria-describedby="tbl-regimes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Memscale</th>
+<th style="text-align: left;">Flopscale</th>
+<th style="text-align: left;">Powerscale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Binding constraint</strong></td>
+<td style="text-align: left;">VRAM</td>
+<td style="text-align: left;">Unit economics</td>
+<td style="text-align: left;">Energy</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Typical scale</strong></td>
+<td style="text-align: left;">1 GPU (16-80 GB)</td>
+<td style="text-align: left;">Dozens to hundreds of GPUs</td>
+<td style="text-align: left;">Several thousands of GPUs</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Team size</strong></td>
+<td style="text-align: left;">Solo</td>
+<td style="text-align: left;">Solo to small team of generalists</td>
+<td style="text-align: left;">Professionally project-managed teams for various stages</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Cost scale, order of magnitude $USD/run</strong></td>
+<td style="text-align: left;">$10-$100s</td>
+<td style="text-align: left;">$1,000s</td>
+<td style="text-align: left;">$1,000,000s</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>There’s something magical about these three realms coexisting at all. Perhaps for the first time in history, our most advanced frontier technologies are also accessible to essentially anyone who can set up Hugging Face jobs or a Colab notebook. No matter how much these regimes differ, it’s remarkable that what little continuity exists, exists at all. But that continuity is quite thin. As someone who essentially lives and breathes post-training, I have seen all three of these first-hand, although I spend almost all my time towards the middle to top end of the flopscale regime. I’m a tolerated guest in powerscale land, and a weekend adventurer in memscale. All I can say is that I never had to talk to a power company about when I can throw the on-switch.</p>
+<section id="memscale-the-tyranny-of-vram" class="level3">
+<h3 class="anchored" data-anchor-id="memscale-the-tyranny-of-vram">Memscale: The tyranny of VRAM</h3>
+<p>At memscale, the fundamental question is: can I fit this into memory? This is the world of the single GPU, from a 3090 through an RTX 6000, perhaps stretching to a GB200 in a DGX Spark if you’re fortunate. The binding constraint is physical and absolute. Either the model, its gradients, its optimiser states and its activations fit, or they don’t. There is no negotiating with VRAM.</p>
+<p>The entire memscale toolkit exists to cope with this constraint. LoRA and its descendants (QLoRA, DoRA, the ever-expanding alphabet) represent a fundamental insight: if you cannot fit the whole thing, fit an efficient delta. Gradient checkpointing trades compute for memory. Quantisation compresses representations. Tools like Unsloth and Axolotl have packaged these techniques into something approaching accessibility for the sufficiently obsessed.</p>
+<p>But here’s what makes memscale genuinely different as a regime: scaling is lumpy. If you run out of memory, your options are to optimise harder or to acquire another GPU, assuming you still can in the current market. There is no smooth gradient of resources. You’re either within your envelope or you’re not, and if you’re not, you hit a wall that you can generally supervene at the cost of doubling your entire GPU investment. The memscale practitioner’s core competency is OOM avoidance. Everything else is secondary.</p>
+<p>This creates a particular kind of craft knowledge, somewhat akin to the art of the demoscene coder who could put entire animated demos into less than a modern social media avatar takes up in space. The memscale expert knows exactly which layers to freeze, which LoRA rank to choose for a given VRAM budget, how to schedule batch sizes against memory headroom, when to checkpoint and when to materialise. It is artisanal work, intimate and particular. And almost none of it transfers upward – which is why relatively few foundation lab researchers, never mind powerscale infrastructure teams, spend much time thinking about memscale techniques.</p>
+</section>
+<section id="flopscale-the-discipline-of-unit-economics" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="flopscale-the-discipline-of-unit-economics">Flopscale: The discipline of unit economics</h3>
+<p>At flopscale, memory ceases to be the binding constraint in any individual sense. You have a cluster. Perhaps dozens of GPUs, perhaps hundreds. You can shard, you can parallelise, you can distribute.</p>
+<p>What you cannot do is waste operations, because what you <em>also</em> have, typically, is a boss. This is firmly enterprise land, and enterprises care about ROI. Those TFLOPs your rack of H200s produce? They’re the <code>I</code> in that abbreviation, and you best be producing some <code>R</code> on them.</p>
+<p>The question then becomes not “can I fit it?” but “can I justify it?” The optimisation target shifts from memory efficiency to unit economics. The scarcest resource is not VRAM but organisational patience for uncertain outcomes.</p>
+<p>Scaling here is smoother than at memscale. You don’t hit walls; you encounter gradients of cost. Need more compute? Provision more nodes. The constraint is fiscal, not physical. But this smoothness is double-edged. At memscale, the walls enforce discipline. At flopscale, you have enough rope to hang yourself, and thus the flopscale practitioner is expected to bring a level of judgment about what to run when that memscale hobbyists don’t have to worry about by and large and powerscale teams… well, to most, it’s a rounding error.</p>
+<p>This is a rather critical realm, and yet, paradoxically, perhaps the most woefully underserved. There are clear risks and failure modes to flopscale work, and you are not going to be able to teach yourself how to run a model on a cluster of 64 H200s from weekend tinkering.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> You need to understand distributed systems, job scheduling, data pipeline reliability, cost monitoring, failure recovery and a host of other concerns that don’t arise at memscale. Yet there are precious few resources targeted at this regime specifically. Most of the literature is either memscale hobbyist-focused or powerscale foundation lab-focused (although at the moment, regrettably, the industry is going through its mediaeval guild phase, where the secrets of building cathedrals are jealously guarded and only passed on from master to apprentice after the latter has proven itself worthy). Flopscale is the neglected middle child of post-training – the realm where most real-world applications will be built, and yet the one with the thinnest knowledge base.</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Please don’t take a HELOC to fund your first 120B full finetune on a bunch of A100s.</p></div><div class="">
+<hr>
+<p><strong>Recipe:</strong> Cassoulet (sort of)</p>
+<ul>
+<li>500g dried white beans, soaked overnight</li>
+<li>Duck confit (4 legs, or make your own if you have the week)</li>
+<li>400g Toulouse sausage</li>
+<li>200g salt pork or pancetta</li>
+<li>Onion, carrot, celery, garlic</li>
+<li>Tomato paste, bay leaves, thyme</li>
+<li>Good stock, ideally duck</li>
+</ul>
+<p>Brown meats separately. Build a soffritto. Layer everything in a Dutch oven with the beans. Add stock to cover. Bake at 150°C (that’s 300°F in freedom units) for three hours minimum, breaking the crust that forms and pushing it down every hour. The crust reforms. You break it again. This is the cassoulet ritual.</p>
+<p>Worth it? Depends on your objective function. ***</p>
+</div></div>
+<p>This is, I think, the hardest regime to operate in well. The memscale practitioner has constraints that enforce focus. The powerscale practitioner has resources that permit exploration. The flopscale practitioner has neither the discipline of poverty nor the freedom of abundance. They must construct their own discipline, and they must do so while delivering demonstrable business value.</p>
+</section>
+<section id="powerscale-the-infrastructure-of-nations" class="level3">
+<h3 class="anchored" data-anchor-id="powerscale-the-infrastructure-of-nations">Powerscale: The infrastructure of nations</h3>
+<p>At powerscale, we measure not in gigabytes or teraflops but in gigawatts. The binding constraint is raw energy: what you can power, cool and sustain. This is foundation lab territory, the handful of organisations that can credibly discuss training runs straining national electrical infrastructure.</p>
+<p>I won’t dwell long here, partly because anyone who is habitually operating at this scale is already deeply familiar with the peculiarities of their narrow place in it. This is ‘big science’. I am reminded of Richard Rhodes’s description of the Manhattan Project as a massive industrial enterprise. Sure, I thought, I get the first part, but… industrial? We think of it as an achievement of science – right up until we realise that just keeping Hanford running took more people per shift than the entire project had physicists. And powerscale AI engineering is no different. For every AI researcher, there are fleets of infrastructure engineers, data centre ops, civil engineers, logistics coordinators and myriad others ensuring that the lights stay on and the gradients keep flowing. I have trained some absurdly large models, but I don’t routinely have to consider geopolitics or the national grid. Neither do powerscale practitioners, but they do have to deal with people who do.</p>
+</section>
+<section id="the-diffusion-problem" class="level3">
+<h3 class="anchored" data-anchor-id="the-diffusion-problem">The diffusion problem</h3>
+<p>This brings us to the crux of the matter. Techniques do diffuse across scales, but the diffusion is slow, uneven and often lossy. If there is such a thing as a post-training discipline, it is largely focused on solving the same vague problem in world so different that the solutions themselves need an effort to be feasibly translated, if at all possible to do so.</p>
+<p>Consider recent work like Khatri, Madaan et al.’s <a href="https://arxiv.org/abs/2510.13786">ScaleRL paper</a>. It would be hand-wavey to claim that such techniques apply only to the narrow powerscale slice. Clearly, insights about reinforcement learning at scale have downstream applicability. But the applicability is not automatic. The flopscale practitioner cannot simply import powerscale techniques wholesale. They must translate, adapt, figure out what survives the transition and what doesn’t.</p>
+<p>Tools like Unsloth accelerate this filtration significantly. They package techniques that originated in higher-resource environments into forms usable at memscale. This is genuine democratisation. But there will always be techniques that don’t translate, approaches that only make sense given certain resource assumptions, optimisations that are pointless below (or above) certain thresholds.</p>
+<p>If you work in post-training, your first task is to know which game you’re playing. The memscale practitioner who imports flopscale assumptions will waste time on approaches they cannot execute. The flopscale practitioner who ignores powerscale developments will miss techniques that could, with adaptation, provide advantage. The flopscale practitioner who imports memscale habits will under-utilise available resources.</p>
+<p>The hardest position, I think, is flopscale. You have enough resources to attempt almost anything but not enough to attempt everything. You face genuine choices about which techniques to adopt, which to adapt and which to ignore. You must show ROI while navigating a tactical landscape that wasn’t designed with your constraints in mind, and remain competitive with players who operate much larger resource envelopes for less focal problems – or know how to “get it right on a 3090” but are blissfully unaware of just how much that is not going to be acceptable in an actual enterprise deployment.</p>
+<p>This is not a solved problem. We lack good heuristics for technique translation across scales. We lack systematic understanding of what survives the transitions and what doesn’t. We lack, frankly, recognition that the problem exists.</p>
+<p>Perhaps the first step is simply to stop pretending that “post-training” names a unified discipline. It doesn’t. We have three disciplines awkwardly sharing a name, and the sooner we recognise this, the sooner we can develop the differentiated knowledge each regime demands while maintaining the channels to traffic insights between them.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{csefalvay2025,
+  author = {{Chris von Csefalvay}},
+  title = {Post-Training: Three Disciplines in a Trenchcoat},
+  date = {2025-12-20},
+  url = {https://chrisvoncsefalvay.com/posts/post-training-scale/},
+  langid = {en-GB}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-csefalvay2025" class="csl-entry quarto-appendix-citeas" role="listitem">
+Chris von Csefalvay. 2025. <span>“Post-Training: Three Disciplines in a
+Trenchcoat.”</span> December 20. <a href="https://chrisvoncsefalvay.com/posts/post-training-scale/">https://chrisvoncsefalvay.com/posts/post-training-scale/</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/chrisvoncsefalvay\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<ol start="3" type="a">
+<li>Chris von Csefalvay, 2011–. <a href="../../disclaimer/">Disclaimer</a> · <a href="../../privacy-policy/">Privacy</a> · <a href="../../corrections/">Corrections</a></li>
+</ol>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
