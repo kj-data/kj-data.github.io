@@ -30,19 +30,6 @@ The data comes from the [NYC TLC Trip Record Data](https://www.nyc.gov/site/tlc/
 
 ## Architecture
 
-```{mermaid}
-flowchart LR
-    A["DataTalksClub<br/>NYC TLC CSVs"] --> B["Kestra<br/>scheduled flow"]
-    B --> C[("GCS<br/>raw CSV")]
-    C --> D[("BigQuery<br/>external table")]
-    D --> E[("BigQuery<br/>monthly table<br/>+ unique_row_id")]
-    E -->|MERGE| F[("BigQuery<br/>yellow / green tripdata<br/>partitioned")]
-    F --> G["dbt<br/>staging, intermediate, marts"]
-    G --> H["Looker Studio<br/>dashboard"]
-    T["Terraform"] -.provisions.-> C
-    T -.provisions.-> F
-    I["GitHub Actions<br/>dbt parse"] -.validates.-> G
-```
 ![Pipeline architecture](nyc_taxi_pipeline_architecture.svg)
 
 
