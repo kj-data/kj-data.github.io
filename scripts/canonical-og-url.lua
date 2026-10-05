@@ -1,7 +1,7 @@
 -- Canonical URL, og:url, and og:type injector for all Quarto pages
 -- Adds <link rel="canonical">, <meta property="og:url">, and <meta property="og:type">
 
-local SITE_URL = "https://chrisvoncsefalvay.com"
+local SITE_URL = "https://kj-data.github.io"
 
 local function get_site_url(meta)
   -- Quarto nests site-url under website in _quarto.yml
